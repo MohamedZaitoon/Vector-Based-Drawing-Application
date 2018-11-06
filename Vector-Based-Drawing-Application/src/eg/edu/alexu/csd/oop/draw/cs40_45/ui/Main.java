@@ -11,13 +11,25 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import eg.edu.alexu.csd.oop.draw.cs40_45.shapes.XCircle;
+import eg.edu.alexu.csd.oop.draw.cs40_45.shapes.Circle;
+import java.awt.Panel;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.FlowLayout;
+import java.awt.CardLayout;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JLabel;
 
 public class Main extends JFrame {
 
 	private JPanel contentPane;
-	Canvas panel;
-	Graphics g;
+	private XCanvas panel;
+	private Graphics canvas;
 	/**
 	 * Launch the application.
 	 */
@@ -42,21 +54,21 @@ public class Main extends JFrame {
 		setBounds(100, 100, 564, 439);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
-		JPanel panel = new JPanel();
-		g = panel.getGraphics();
+		JPanel p = new JPanel();
+		panel = new XCanvas();
+		panel.setForeground(Color.BLACK);
+		panel.setBackground(Color.WHITE);
+		panel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+			}
+		});
+		contentPane.setLayout(new BorderLayout(0, 0));
 		contentPane.add(panel, BorderLayout.CENTER);
-		
-		XCircle c = new XCircle();
-		 c.setRadius(20);
-		 c.setPosition(new Point(60,60));
-		 c.setColor(Color.BLACK);
-		 c.setFillColor(Color.BLUE);
-		 c.draw(g);
-		
-		
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 	}
+	
 
 }
