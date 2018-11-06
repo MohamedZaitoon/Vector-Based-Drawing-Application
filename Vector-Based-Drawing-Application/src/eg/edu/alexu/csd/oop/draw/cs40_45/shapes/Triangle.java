@@ -1,14 +1,25 @@
 package eg.edu.alexu.csd.oop.draw.cs40_45.shapes;
 
+import java.awt.BasicStroke;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 import eg.edu.alexu.csd.oop.draw.cs40_45.XShape;
 
 public class Triangle extends XShape{
 
+	private final int NOPOINTS = 3;
 	@Override
 	public void draw(Graphics canvas) {
-		// TODO Auto-generated method stub
+		int dx = this.secondPoint.x - this.position.x;
+		int[] x = {this.position.x, this.secondPoint.x,this.position.x-dx};
+		int[] y = {this.position.y, this.secondPoint.y,this.secondPoint.y};
+		Graphics2D can = (Graphics2D) canvas;
+		can.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		can.setStroke(new BasicStroke(2));
+		can.setPaint(this.getFillColor());
+		can.fillPolygon(x, y, NOPOINTS);
 		
 	}
 

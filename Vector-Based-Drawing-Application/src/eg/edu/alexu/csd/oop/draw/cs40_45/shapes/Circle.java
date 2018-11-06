@@ -1,28 +1,24 @@
 package eg.edu.alexu.csd.oop.draw.cs40_45.shapes;
 
+import java.awt.BasicStroke;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 import eg.edu.alexu.csd.oop.draw.cs40_45.XShape;
 
-public class XCircle extends XShape {
-	private Integer radius;
-	
-	public XCircle() {
-		super();
-	}
-
-	public Integer getRadius() {
-		return radius;
-	}
-
-	public void setRadius(Integer radius) {
-		this.radius = radius;
-	}
+public class Circle extends XShape {
 
 	@Override
 	public void draw(Graphics canvas) {
-		canvas.setColor(this.getColor());
-		canvas.fillOval(this.getPosition().x, this.getPosition().y, this.radius, this.radius);
+		int x = Math.abs(this.position.x -this.secondPoint.x);
+		int y = Math.abs(this.position.y -this.secondPoint.y);
+		int radius = (int) Math.sqrt(x*x+y*y);
+		Graphics2D can = (Graphics2D) canvas;
+		can.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		can.setStroke(new BasicStroke(2));
+		can.setPaint(this.getFillColor());
+		can.fillOval(this.position.x, this.position.y, radius, radius);
 	}
 
 	@Override
