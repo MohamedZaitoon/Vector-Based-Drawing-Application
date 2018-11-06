@@ -9,15 +9,20 @@ import eg.edu.alexu.csd.oop.draw.cs40_45.XShape;
 
 public class Ellipse extends XShape{
 
+	public Ellipse() {
+		super();
+	}
 	@Override
 	public void draw(Graphics canvas) {
-		int width = Math.abs(this.position.x -this.secondPoint.x);
-		int hieght = Math.abs(this.position.y -this.secondPoint.y);
+		int minx =  Math.min(this.position.x , this.getProperties().get(this.x2).intValue());
+		int miny = Math.min(this.position.y , this.getProperties().get(this.y2).intValue() );
+		int width = (int) Math.abs(this.position.x -this.getProperties().get(this.x2));
+		int hieght = (int) Math.abs(this.position.y -this.getProperties().get(this.y2));
 		Graphics2D can = (Graphics2D) canvas;
 		can.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		can.setStroke(new BasicStroke(2));
 		can.setPaint(this.getFillColor());
-		can.fillOval(this.position.x, this.position.y, width, hieght);
+		can.fillOval(minx, miny, width, hieght);
 		
 	}
 	@Override

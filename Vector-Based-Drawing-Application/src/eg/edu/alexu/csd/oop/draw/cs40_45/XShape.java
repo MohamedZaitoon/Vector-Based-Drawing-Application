@@ -3,24 +3,23 @@ package eg.edu.alexu.csd.oop.draw.cs40_45;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.HashMap;
 import java.util.Map;
 
 import eg.edu.alexu.csd.oop.draw.Shape;
 
 public abstract class XShape implements Shape {
 	protected Point position;
-	protected Point secondPoint;
-	public Point getSecondPoint() {
-		return secondPoint;
-	}
-
-	public void setSecondPoint(Point secondPoint) {
-		this.secondPoint = secondPoint;
-	}
 	protected Color color;
 	protected Color fillColor;
-	protected Map<String, Double>prop;
-	
+	protected final String x2 ="x2",y2="y2";
+	protected Map<String, Double> prop;
+
+	public XShape() {
+		this.prop = new HashMap<>();
+		this.color = Color.BLACK;
+		this.fillColor = Color.BLUE;
+	}
 	@Override
 	public void setPosition(Point position) {
 		this.position = position;
@@ -62,7 +61,8 @@ public abstract class XShape implements Shape {
 		return this.fillColor;
 	}
 
-	public abstract void draw(Graphics canvas) ;
-	public abstract Object clone() throws CloneNotSupportedException; 
+	public abstract void draw(Graphics canvas);
+
+	public abstract Object clone() throws CloneNotSupportedException;
 
 }
