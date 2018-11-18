@@ -1,30 +1,18 @@
 package eg.edu.alexu.csd.oop.draw.cs40_45.ui;
 
 import java.awt.BorderLayout;
-import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
-import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import eg.edu.alexu.csd.oop.draw.cs40_45.shapes.Circle;
-import java.awt.Panel;
-import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.FlowLayout;
-import java.awt.CardLayout;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
-import java.awt.Component;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JLabel;
-
+@SuppressWarnings("serial")
 public class Main extends JFrame {
 
 	private JPanel contentPane;

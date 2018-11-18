@@ -1,7 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs40_45.shapes;
 
 import java.awt.BasicStroke;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
@@ -13,7 +12,7 @@ public class Ellipse extends XShape{
 		super();
 	}
 	@Override
-	public void draw(Graphics canvas) {
+	public void draw(Object canvas) {
 		int minx =  Math.min(this.position.x , this.getProperties().get(this.x2).intValue());
 		int miny = Math.min(this.position.y , this.getProperties().get(this.y2).intValue() );
 		int width = (int) Math.abs(this.position.x -this.getProperties().get(this.x2));

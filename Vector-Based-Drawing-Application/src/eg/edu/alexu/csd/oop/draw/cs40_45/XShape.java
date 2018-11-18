@@ -1,7 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs40_45;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Point;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,13 +15,16 @@ public abstract class XShape implements Shape {
 	protected Map<String, Double> prop;
 
 	public XShape() {
+		this.position = new Point();
 		this.prop = new HashMap<>();
 		this.color = Color.BLACK;
 		this.fillColor = Color.BLUE;
+		this.prop.put(x2, (double) -1100);
+		this.prop.put(y2, (double) -1100);
 	}
 	@Override
-	public void setPosition(Point position) {
-		this.position = position;
+	public void setPosition(Object position) {
+		this.position = (Point) position;
 	}
 
 	@Override
@@ -41,8 +43,8 @@ public abstract class XShape implements Shape {
 	}
 
 	@Override
-	public void setColor(Color color) {
-		this.color = color;
+	public void setColor(Object color) {
+		this.color = (Color) color;
 	}
 
 	@Override
@@ -51,9 +53,9 @@ public abstract class XShape implements Shape {
 	}
 
 	@Override
-	public void setFillColor(Color color) {
+	public void setFillColor(Object color) {
 
-		this.fillColor = color;
+		this.fillColor = (Color) color;
 	}
 
 	@Override
@@ -61,7 +63,7 @@ public abstract class XShape implements Shape {
 		return this.fillColor;
 	}
 
-	public abstract void draw(Graphics canvas);
+	public abstract void draw(Object canvas);
 
 	public abstract Object clone() throws CloneNotSupportedException;
 

@@ -25,11 +25,7 @@ public class XCanvas extends JComponent {
 	}
 
 	public void paint(Graphics g) {
-		
-		Shape[] shapes = engine.getShapes();
-		for (Shape x : shapes) {
-			x.draw(g);
-		}
+		engine.refresh(g);
 		if(drawing) {
 			shape.draw(g);
 		}

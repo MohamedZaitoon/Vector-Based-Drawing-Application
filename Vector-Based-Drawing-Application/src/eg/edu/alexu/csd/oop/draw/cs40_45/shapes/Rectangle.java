@@ -1,10 +1,8 @@
 package eg.edu.alexu.csd.oop.draw.cs40_45.shapes;
 
 import java.awt.BasicStroke;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.geom.Rectangle2D;
 
 import eg.edu.alexu.csd.oop.draw.cs40_45.XShape;
 
@@ -15,7 +13,7 @@ public class Rectangle extends XShape{
 	}
 	
 	@Override
-	public void draw(Graphics canvas) {
+	public void draw(Object canvas) {
 		int xp = (int) (this.prop.get(this.x2)+0);
 		int yp = (int) (this.prop.get(this.y2)+0);
 		int[] x = {this.position.x, this.position.x,xp, xp};

@@ -1,7 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs40_45.shapes;
 
 import java.awt.BasicStroke;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
@@ -13,7 +12,7 @@ public class Line extends XShape{
 		super();
 	}
 	@Override
-	public void draw(Graphics canvas) {
+	public void draw(Object canvas) {
 		int x = (int) (this.prop.get(this.x2)+0);	// x of end Point
 		int y = (int) (this.prop.get(this.y2)+0); // Y of end point
 		Graphics2D can = (Graphics2D) canvas;
