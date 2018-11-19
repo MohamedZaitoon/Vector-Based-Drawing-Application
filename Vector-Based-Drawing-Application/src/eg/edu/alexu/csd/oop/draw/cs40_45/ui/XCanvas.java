@@ -54,7 +54,6 @@ public class XCanvas extends JComponent {
 
 			public void mouseReleased(MouseEvent e) {
 				if(drawing) {
-				//xxShape(shape, e.getX(), e.getY());
 					setSecondPoint(e.getX(),e.getY());
 					engine.addShape(shape);
 					

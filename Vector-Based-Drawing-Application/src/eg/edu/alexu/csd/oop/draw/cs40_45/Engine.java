@@ -127,7 +127,7 @@ public class Engine implements DrawingEngine {
 		shps.add(Line.class);
 		shps.add(Rectangle.class);
 		shps.add(Triangle.class);
-		// shps.add(RoundRectangle.class);
+		//shps.add(RoundRectangle.class);
 		return shps;
 	}
 
@@ -180,7 +180,7 @@ public class Engine implements DrawingEngine {
 		File file = new File(path);
 		String s = file.getName();
 		try {
-			
+
 			FileWriter fw = new FileWriter(file);
 			BufferedWriter bf = new BufferedWriter(fw);
 			if (s.matches(".*\\.[Xx][Mm][Ll]")) {
@@ -193,7 +193,6 @@ public class Engine implements DrawingEngine {
 			bf.close();
 			fw.close();
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 
 	}
@@ -205,26 +204,33 @@ public class Engine implements DrawingEngine {
 		FileReader fr;
 		BufferedReader br;
 		StringBuilder xString = new StringBuilder();
+		boolean isXml = name.matches(".*\\.[Xx][Mm][Ll]");
+		boolean isJson = name.matches(".*\\.[Jj][Ss][Oo][Nn]");
 		try {
 			fr = new FileReader(file);
 			br = new BufferedReader(fr);
 			String s;
-			while ((s = br.readLine()) != null) {
-				xString.append(s + "\n");
+			if (isXml) {
+				while ((s = br.readLine()) != null) {
+					xString.append(s + "\n");
+				}
+			}else if(isJson){
+				while ((s = br.readLine()) != null) {
+					xString.append(s);
+				}
 			}
 			br.close();
 			fr.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		if (name.matches(".*\\.[Xx][Mm][Ll]")) {
+		if (isXml) {
 			ParseXml parser = new ParseXml();
 			parser.getFromXml(this, xString);
-		} else if (name.matches(".*\\.[Jj][Ss][Oo][Nn]")) {
+		} else if (isJson) {
 			ParseJson parser = new ParseJson();
 			parser.getFromJson(this, xString);
 		}
-		
 
 	}
 

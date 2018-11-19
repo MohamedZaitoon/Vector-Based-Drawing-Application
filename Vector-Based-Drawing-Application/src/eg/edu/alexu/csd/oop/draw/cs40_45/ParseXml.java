@@ -2,9 +2,7 @@ package eg.edu.alexu.csd.oop.draw.cs40_45;
 
 import java.awt.Color;
 import java.awt.Point;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -40,8 +38,10 @@ public class ParseXml {
 				ss.append("</map>\n");
 
 				Point p = new Point();
+			
 				if (x.getPosition() != null)
 					p = ((Point) x.getPosition());
+
 				ss.append("<x>" + p.getX() + "</x>\n");
 				ss.append("<y>" + p.getY() + "</y>\n");
 				Color cl = (Color) x.getColor();
@@ -55,7 +55,8 @@ public class ParseXml {
 
 			} catch (Exception e) {
 				System.out.println("Shape can't save");
-			}
+			}catch (Throwable e) {
+	        }
 			ss.append("</shape>\n");
 			xmlString.append(ss.toString());
 
@@ -68,6 +69,7 @@ public class ParseXml {
 
 	public void getFromXml(DrawingEngine engine, StringBuilder xmlString) {
 		Engine en = (Engine) engine;
+		ArrayList<Shape> shapes = new ArrayList<>();
 		if (xmlString.length() != 0) {
 			// get Engine
 			String xml = xmlString.toString();
@@ -121,9 +123,10 @@ public class ParseXml {
 					} catch (IllegalAccessException e) {
 						e.printStackTrace();
 					}
-					en.addShape((Shape) loadedShape);
+					shapes.add(((Shape) loadedShape));
 
 				}
+				en.setShapes(shapes);
 			}
 		}
 	}
