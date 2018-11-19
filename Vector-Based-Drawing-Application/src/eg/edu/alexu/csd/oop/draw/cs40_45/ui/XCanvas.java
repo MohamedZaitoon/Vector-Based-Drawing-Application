@@ -6,7 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
-import javax.swing.JComponent;
+import javax.swing.JPanel;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
@@ -15,7 +15,7 @@ import eg.edu.alexu.csd.oop.draw.cs40_45.shapes.Rectangle;
 import eg.edu.alexu.csd.oop.draw.cs40_45.shapes.Square;
 
 @SuppressWarnings("serial")
-public class XCanvas extends JComponent {
+public class XCanvas extends JPanel {
 	private DrawingEngine engine;
 	private Point firstPoint;
 	private Shape shape;
@@ -28,12 +28,7 @@ public class XCanvas extends JComponent {
 		engine.refresh(g);
 		if(drawing) {
 			shape.draw(g);
-		}
-		/*shape = new Circle();
-		shape.setPosition(new Point (100,100));
-		setSecondPoint(200,200);
-		shape.draw(gr);*/
-		
+		}		
 	}
 
 	public XCanvas() {
@@ -78,15 +73,4 @@ public class XCanvas extends JComponent {
 		shape.getProperties().put("x2", (double) x);
 		shape.getProperties().put("y2", (double) y);
 	}
-	/*public void xxShape(Shape shape, int x, int y) {
-		Map<String, Double> m = new HashMap<>();
-		m.put("x1", firstPoint.getX());
-		m.put("y1", firstPoint.getY());
-		m.put("x2", (double) x);
-		m.put("y2", (double) y);
-		m.put("color", (double) shape.getColor().getRGB());
-		m.put("fillColor", (double) shape.getFillColor().getRGB());
-		shape.setProperties(m);
-	}*/
-
 }

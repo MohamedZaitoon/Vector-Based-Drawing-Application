@@ -22,7 +22,6 @@ public class ParseXml {
 		for (Shape x : shapes) {
 			try {
 				ss = new StringBuilder();
-				// System.out.println(x.getClass().getName());
 				ss.append("<shape id=\"" + x.getClass().getName() + "\">\n");
 
 				ss.append("<map>\n");
@@ -63,7 +62,6 @@ public class ParseXml {
 		}
 
 		xmlString.append("</Engine>\n");
-		// System.out.println(xmlString.toString());
 		return xmlString.toString();
 	}
 

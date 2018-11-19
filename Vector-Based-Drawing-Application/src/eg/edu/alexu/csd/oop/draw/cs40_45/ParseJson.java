@@ -52,7 +52,6 @@ public class ParseJson {
 		jsonString = new StringBuilder(jsonString.substring(0, jsonString.length()-2));
 		
 		jsonString.append("\n]\n}\n");
-		//System.out.println(jsonString.toString());
 		return jsonString.toString();
 		
 	}
@@ -65,21 +64,18 @@ public class ParseJson {
 		Matcher m;
 		if(jsonString.length() != 0) {
 			String json = jsonString.append(",").toString().trim();
-			//System.out.println(json);
 			String patternS = "\\{\"shapes\":\\[(.*)\\]\\}";
 			try {
 				
 			p = Pattern.compile(patternS);
 			m = p.matcher(json);
 			if(m.find()) {
-				System.out.println(m.group(1));
 				String patternC = "(\\{\"Class\":\"([^,]*)\","
 						+ "\"map\":\\["
 						+ "((\"[^,]*\":\"[^,]*\",?)*)"
 						+ "\\],"
 						+ "((\"[^,]*\":\"[^,]*\",?)*)\\})*";
 				Matcher mc = Pattern.compile(patternC).matcher(m.group(1));
-				System.out.println(mc.groupCount());
 				while(mc.find()) {
 					if(mc.group(1) == null) continue;
 					Class shapeClass = null;
