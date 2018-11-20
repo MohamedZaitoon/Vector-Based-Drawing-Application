@@ -1,5 +1,7 @@
 package eg.edu.alexu.csd.oop.draw;
 
+import java.awt.Point;
+
 public interface DrawingEngine {
 
     /* redraw all shapes on the canvas */
@@ -25,4 +27,5 @@ public interface DrawingEngine {
      * or throw runtime exception when unexpected extension */
     public void save(String path);
     public void load(String path);
+
 }
