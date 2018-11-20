@@ -18,7 +18,7 @@ public abstract class XShape implements Shape {
 		this.position = new Point();
 		this.prop = new HashMap<>();
 		this.color = Color.BLACK;
-		this.fillColor = Color.BLUE;
+		this.fillColor = Color.WHITE;
 		this.prop.put(x2, (double) -1100);
 		this.prop.put(y2, (double) -1100);
 	}

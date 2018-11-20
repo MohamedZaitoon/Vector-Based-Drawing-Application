@@ -22,7 +22,7 @@ public class Circle extends XShape {
 		int radius = (int) Math.sqrt(x*x+y*y);
 		Graphics2D can = (Graphics2D) canvas;
 		can.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		can.setPaint(Color.red);
+		can.setPaint(this.getColor());
 		can.setStroke(new BasicStroke(2));
 		can.drawOval(minx, miny, radius, radius);
 		can.setPaint(this.getFillColor());

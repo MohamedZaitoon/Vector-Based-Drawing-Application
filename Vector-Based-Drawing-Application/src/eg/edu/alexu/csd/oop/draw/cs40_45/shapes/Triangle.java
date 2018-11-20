@@ -21,7 +21,9 @@ public class Triangle extends XShape{
 		int[] y = {this.position.y, yp,yp};
 		Graphics2D can = (Graphics2D) canvas;
 		can.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		can.setPaint(this.getColor());
 		can.setStroke(new BasicStroke(2));
+		can.drawPolygon(x, y, NOPOINTS);
 		can.setPaint(this.getFillColor());
 		can.fillPolygon(x, y, NOPOINTS);
 		
