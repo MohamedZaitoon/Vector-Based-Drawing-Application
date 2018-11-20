@@ -7,6 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
@@ -15,7 +16,7 @@ import eg.edu.alexu.csd.oop.draw.cs40_45.Engine;
 import eg.edu.alexu.csd.oop.draw.cs40_45.shapes.*;
 
 @SuppressWarnings("serial")
-public class XCanvas extends JPanel {
+public class XCanvas extends JComponent {
 	private DrawingEngine engine;
 	private Point firstPoint;
 	private Shape shape = new Line();
