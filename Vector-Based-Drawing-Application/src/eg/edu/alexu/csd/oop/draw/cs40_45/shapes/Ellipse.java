@@ -19,7 +19,9 @@ public class Ellipse extends XShape{
 		int hieght = (int) Math.abs(this.position.y -this.getProperties().get(this.y2));
 		Graphics2D can = (Graphics2D) canvas;
 		can.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		can.setPaint(this.getColor());
 		can.setStroke(new BasicStroke(2));
+		can.drawOval(minx, miny, width, hieght);
 		can.setPaint(this.getFillColor());
 		can.fillOval(minx, miny, width, hieght);
 		

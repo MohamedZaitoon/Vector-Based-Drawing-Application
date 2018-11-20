@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs40_45.ui;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -11,17 +12,30 @@ import javax.swing.JComponent;
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs40_45.Engine;
-import eg.edu.alexu.csd.oop.draw.cs40_45.shapes.Rectangle;
-import eg.edu.alexu.csd.oop.draw.cs40_45.shapes.Square;
+import eg.edu.alexu.csd.oop.draw.cs40_45.shapes.*;
 
 @SuppressWarnings("serial")
 public class XCanvas extends JComponent {
 	private DrawingEngine engine;
 	private Point firstPoint;
-	private Shape shape;
+	private Shape shape = new Line();
+	private Color color = Color.BLACK;
+	private Color colorFill = Color.WHITE;
 	private boolean drawing = false;
-	public void setShape(Shape shape) {
-		this.shape = shape;
+	public void setShape(Object shape) {
+		this.shape = (Shape) shape;
+	}
+	
+	public Shape getShape() {
+		return this.shape;
+	}
+	
+	public void setColor(Object color) {
+		this.color = (Color) color;
+	}
+	
+	public void setColorFill(Object colorFill) {
+		this.colorFill = (Color) colorFill;
 	}
 
 	public void paint(Graphics g) {
@@ -35,19 +49,18 @@ public class XCanvas extends JComponent {
 		shape.draw(gr);*/
 		
 	}
-
+	
 	public XCanvas() {
 		engine = new Engine();
-		shape = new Square();
 		this.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
 				if(shape != null) {
 					drawing = true;
-				
 					firstPoint = new Point(e.getX(), e.getY());
 					setSecondPoint(e.getX(),e.getY());
+					shape.setColor(color);
+					shape.setFillColor(colorFill);
 					shape.setPosition(firstPoint);
-
 					repaint();
 				}
 			}
@@ -59,7 +72,15 @@ public class XCanvas extends JComponent {
 					engine.addShape(shape);
 					
 					drawing = false;
-					shape = new Rectangle();
+					Class<? extends Object> cls = shape.getClass();
+					try {
+						shape = (Shape) cls.newInstance();
+						shape.setColor(color);
+						shape.setFillColor(colorFill);
+					} catch (InstantiationException | IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					repaint();
 				}
 			}

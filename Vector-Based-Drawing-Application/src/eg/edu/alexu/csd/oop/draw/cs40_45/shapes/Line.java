@@ -18,14 +18,14 @@ public class Line extends XShape{
 		Graphics2D can = (Graphics2D) canvas;
 		can.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		can.setStroke(new BasicStroke(2));
-		can.setPaint(this.color);
+		can.setPaint(this.getColor());
 		can.drawLine(x, y,this.position.x, this.position.y);
 	}
 
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return null;
+		Line cloneLine = new Line();
+		return cloneLine;
 	}
 
 }
