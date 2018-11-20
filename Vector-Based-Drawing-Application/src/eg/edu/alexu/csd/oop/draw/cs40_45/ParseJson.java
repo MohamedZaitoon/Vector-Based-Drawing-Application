@@ -97,7 +97,6 @@ public class ParseJson {
 							((Shape) loadedShape).setPosition(new Point(x.intValue(), y.intValue()));
 							((Shape) loadedShape).setColor(Color.decode(match.group(3)));
 							((Shape) loadedShape).setFillColor(Color.decode(match.group(4)));
-
 						}
 
 					} catch (ClassNotFoundException e) {

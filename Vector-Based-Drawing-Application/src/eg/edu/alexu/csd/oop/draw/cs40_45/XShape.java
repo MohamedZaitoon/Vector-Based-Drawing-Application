@@ -15,12 +15,14 @@ public abstract class XShape implements Shape {
 	protected Map<String, Double> prop;
 
 	public XShape() {
+		
 		this.position = new Point();
 		this.prop = new HashMap<>();
-		this.color = Color.BLACK;
-		this.fillColor = Color.WHITE;
+		this.prop.put("alpha",  0.0);
+		this.prop.put("thickness", 2.0);
 		this.prop.put(x2, (double) -1100);
 		this.prop.put(y2, (double) -1100);
+		this.fillColor = new  Color(0, 0, 0,0);
 	}
 	@Override
 	public void setPosition(Object position) {
@@ -64,7 +66,7 @@ public abstract class XShape implements Shape {
 	}
 
 	public abstract void draw(Object canvas);
-
-	public abstract Object clone() throws CloneNotSupportedException;
+	public abstract Object clone() throws CloneNotSupportedException ;
+	
 
 }
