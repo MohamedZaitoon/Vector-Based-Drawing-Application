@@ -8,12 +8,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.JComponent;
-import javax.swing.JPanel;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs40_45.Engine;
-import eg.edu.alexu.csd.oop.draw.cs40_45.shapes.*;
 import eg.edu.alexu.csd.oop.draw.cs40_45.XShape;
 
 @SuppressWarnings("serial")
